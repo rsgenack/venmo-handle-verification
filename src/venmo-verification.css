@@ -1,0 +1,328 @@
+:root {
+  --vv-ink: #102331;
+  --vv-muted: #5c6d78;
+  --vv-line: #c8d5dc;
+  --vv-paper: #ffffff;
+  --vv-canvas: #eef5f6;
+  --vv-accent: #0074de;
+  --vv-accent-strong: #005db5;
+  --vv-confirm: #bdf66f;
+  --vv-danger: #b42318;
+  --vv-radius: 14px;
+  --vv-font: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+}
+
+.vv-root,
+.vv-root *,
+.vv-backdrop,
+.vv-backdrop * {
+  box-sizing: border-box;
+}
+
+.vv-root {
+  color: var(--vv-ink);
+  font-family: var(--vv-font);
+  width: 100%;
+}
+
+.vv-label {
+  display: block;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.55rem;
+}
+
+.vv-field-row {
+  align-items: center;
+  background: var(--vv-paper);
+  border: 2px solid var(--vv-ink);
+  border-radius: var(--vv-radius);
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  min-height: 3.75rem;
+  overflow: hidden;
+  transition: box-shadow 150ms ease, border-color 150ms ease;
+}
+
+.vv-field-row:focus-within {
+  border-color: var(--vv-accent);
+  box-shadow: 0 0 0 4px color-mix(in srgb, var(--vv-accent) 18%, transparent);
+}
+
+.vv-at {
+  color: var(--vv-muted);
+  font-size: 1.1rem;
+  font-weight: 700;
+  padding-left: 1rem;
+}
+
+.vv-input {
+  background: transparent;
+  border: 0;
+  color: var(--vv-ink);
+  font: inherit;
+  font-size: 1rem;
+  font-weight: 650;
+  min-width: 0;
+  outline: 0;
+  padding: 1rem 0.7rem 1rem 0.25rem;
+}
+
+.vv-input::placeholder {
+  color: #91a0a9;
+  font-weight: 500;
+}
+
+.vv-preview-button,
+.vv-button,
+.vv-icon-button {
+  font-family: var(--vv-font);
+}
+
+.vv-preview-button {
+  align-self: stretch;
+  background: var(--vv-accent);
+  border: 0;
+  color: white;
+  cursor: pointer;
+  font-size: 0.88rem;
+  font-weight: 750;
+  padding: 0 1.15rem;
+}
+
+.vv-preview-button:hover:not(:disabled) {
+  background: var(--vv-accent-strong);
+}
+
+.vv-preview-button:focus-visible,
+.vv-button:focus-visible,
+.vv-icon-button:focus-visible,
+.vv-modal a:focus-visible {
+  outline: 3px solid var(--vv-confirm);
+  outline-offset: 3px;
+}
+
+.vv-preview-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.vv-message {
+  color: var(--vv-muted);
+  font-size: 0.82rem;
+  line-height: 1.45;
+  margin-top: 0.55rem;
+  min-height: 1.2em;
+}
+
+.vv-error {
+  color: var(--vv-danger);
+  font-weight: 650;
+}
+
+.vv-verified {
+  color: #27620e;
+  font-weight: 750;
+}
+
+.vv-verified::before {
+  content: "✓";
+  margin-right: 0.4rem;
+}
+
+.vv-backdrop {
+  align-items: center;
+  background: rgb(7 25 38 / 74%);
+  display: flex;
+  font-family: var(--vv-font);
+  inset: 0;
+  justify-content: center;
+  padding: 1rem;
+  position: fixed;
+  z-index: 9999;
+}
+
+.vv-modal {
+  animation: vv-modal-in 180ms ease-out;
+  background: var(--vv-canvas);
+  border-radius: 20px;
+  box-shadow: 0 28px 80px rgb(0 0 0 / 28%);
+  color: var(--vv-ink);
+  max-height: calc(100dvh - 2rem);
+  max-width: 50rem;
+  overflow: auto;
+  padding: 1.25rem;
+  width: 100%;
+}
+
+.vv-modal__header {
+  align-items: flex-start;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.vv-modal__header h2 {
+  font-size: clamp(1.55rem, 4vw, 2.1rem);
+  letter-spacing: -0.045em;
+  line-height: 1;
+  margin: 0.2rem 0 0;
+}
+
+.vv-modal__step {
+  color: var(--vv-accent-strong);
+  font-size: 0.8rem;
+  font-weight: 750;
+  margin: 0;
+}
+
+.vv-icon-button {
+  align-items: center;
+  background: white;
+  border: 1px solid var(--vv-line);
+  border-radius: 50%;
+  color: var(--vv-ink);
+  cursor: pointer;
+  display: inline-flex;
+  flex: 0 0 auto;
+  font-size: 1.6rem;
+  height: 2.5rem;
+  justify-content: center;
+  line-height: 1;
+  width: 2.5rem;
+}
+
+.vv-browser {
+  background: white;
+  border: 1px solid var(--vv-line);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.vv-browser__bar {
+  align-items: center;
+  background: #dde8eb;
+  display: grid;
+  gap: 0.35rem;
+  grid-template-columns: 0.55rem 0.55rem 0.55rem 1fr;
+  min-height: 2.35rem;
+  padding: 0.55rem 0.75rem;
+}
+
+.vv-browser__bar span {
+  background: #91a7b1;
+  border-radius: 50%;
+  height: 0.55rem;
+  width: 0.55rem;
+}
+
+.vv-browser__bar strong {
+  color: #4a626f;
+  font-size: 0.72rem;
+  font-weight: 650;
+  overflow: hidden;
+  padding-left: 0.45rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.vv-profile-frame {
+  background: white;
+  border: 0;
+  display: block;
+  height: min(55dvh, 32rem);
+  width: 100%;
+}
+
+.vv-modal__fallback {
+  color: var(--vv-muted);
+  font-size: 0.8rem;
+  line-height: 1.45;
+  margin: 0.75rem 0 0;
+}
+
+.vv-modal__fallback a {
+  color: var(--vv-accent-strong);
+  font-weight: 700;
+}
+
+.vv-modal__actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+.vv-button {
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 750;
+  min-height: 3rem;
+  padding: 0.75rem 1.25rem;
+}
+
+.vv-button--quiet {
+  background: white;
+  box-shadow: inset 0 0 0 1px var(--vv-line);
+  color: var(--vv-ink);
+}
+
+.vv-button--confirm {
+  background: var(--vv-confirm);
+  color: #173100;
+}
+
+@keyframes vv-modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.985);
+  }
+}
+
+@media (max-width: 38rem) {
+  .vv-field-row {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .vv-preview-button {
+    grid-column: 1 / -1;
+    min-height: 3rem;
+  }
+
+  .vv-backdrop {
+    align-items: flex-end;
+    padding: 0;
+  }
+
+  .vv-modal {
+    border-radius: 20px 20px 0 0;
+    max-height: 94dvh;
+    padding: 1rem;
+  }
+
+  .vv-profile-frame {
+    height: 48dvh;
+  }
+
+  .vv-modal__actions {
+    flex-direction: column-reverse;
+  }
+
+  .vv-button {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vv-modal {
+    animation: none;
+  }
+
+  .vv-field-row {
+    transition: none;
+  }
+}

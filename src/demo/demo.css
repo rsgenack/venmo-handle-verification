@@ -1,0 +1,124 @@
+:root {
+  color: #102331;
+  font-family: "Avenir Next", Avenir, "Segoe UI", sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  background: #dceff3;
+  margin: 0;
+  min-width: 20rem;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+.demo-shell {
+  display: grid;
+  gap: clamp(3rem, 8vw, 7rem);
+  grid-template-columns: minmax(0, 1.15fr) minmax(20rem, 0.85fr);
+  margin: 0 auto;
+  max-width: 78rem;
+  min-height: 100dvh;
+  padding: clamp(1.5rem, 5vw, 5rem);
+  place-items: center stretch;
+}
+
+.demo-intro h1 {
+  font-size: clamp(3.2rem, 7.8vw, 7.8rem);
+  letter-spacing: -0.075em;
+  line-height: 0.85;
+  margin: 1.5rem 0 2rem;
+  max-width: 8ch;
+}
+
+.demo-intro > p {
+  color: #3f5664;
+  font-size: clamp(1.05rem, 2vw, 1.3rem);
+  line-height: 1.55;
+  max-width: 34rem;
+}
+
+.demo-repo {
+  color: #005db5;
+  font-size: 0.9rem;
+  font-weight: 750;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.25rem;
+}
+
+.demo-steps {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 2rem;
+}
+
+.demo-steps span {
+  background: #102331;
+  border-radius: 999px;
+  color: white;
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0.55rem 0.85rem;
+}
+
+.demo-card {
+  background: #f9fcfc;
+  border: 1px solid #bfd3da;
+  border-radius: 1.5rem;
+  box-shadow: 0 2rem 5rem rgb(31 82 103 / 15%);
+  padding: clamp(1.25rem, 4vw, 2rem);
+  width: 100%;
+}
+
+.demo-card__topline {
+  align-items: center;
+  color: #647985;
+  display: flex;
+  font-size: 0.8rem;
+  font-weight: 700;
+  justify-content: space-between;
+  margin-bottom: 2.5rem;
+}
+
+.demo-status {
+  align-items: center;
+  display: inline-flex;
+  gap: 0.4rem;
+}
+
+.demo-status::before {
+  background: #bdf66f;
+  border: 1px solid #668d2e;
+  border-radius: 50%;
+  content: "";
+  height: 0.55rem;
+  width: 0.55rem;
+}
+
+.demo-result {
+  border-top: 1px solid #d4e0e4;
+  color: #647985;
+  font-size: 0.82rem;
+  line-height: 1.5;
+  margin: 2rem 0 0;
+  padding-top: 1rem;
+}
+
+@media (max-width: 54rem) {
+  .demo-shell {
+    grid-template-columns: 1fr;
+    place-items: start stretch;
+  }
+
+  .demo-intro h1 {
+    max-width: 10ch;
+  }
+
+  .demo-card {
+    max-width: 38rem;
+  }
+}
