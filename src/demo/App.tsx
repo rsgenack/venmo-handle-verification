@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { VenmoVerification } from "../VenmoVerification";
 import "../venmo-verification.css";
@@ -6,6 +6,30 @@ import "./demo.css";
 
 export function App() {
   const [verified, setVerified] = useState<string | null>(null);
+
+  useEffect(() => {
+    const stage = new URLSearchParams(window.location.search).get("stage");
+
+    if (stage !== "modal" && stage !== "verified") {
+      return;
+    }
+
+    const previewTimer = window.setTimeout(() => {
+      document.querySelector<HTMLButtonElement>(".vv-preview-button")?.click();
+    }, 250);
+    const confirmTimer =
+      stage === "verified"
+        ? window.setTimeout(() => {
+            document.querySelector<HTMLButtonElement>(".vv-button--confirm")?.click();
+          }, 1_500)
+        : undefined;
+
+    return () => {
+      window.clearTimeout(previewTimer);
+
+      if (confirmTimer) window.clearTimeout(confirmTimer);
+    };
+  }, []);
 
   return (
     <main className="demo-shell">

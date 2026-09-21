@@ -20,6 +20,7 @@
     "dev": "vite -c vite.demo.config.ts",
     "build": "vite build && tsc -p tsconfig.build.json",
     "build:demo": "vite build -c vite.demo.config.ts",
+    "docs:capture": "node scripts/capture-readme.mjs",
     "prepare": "npm run build",
     "prepublishOnly": "npm test && npm run build",
     "test": "vitest run",
