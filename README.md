@@ -13,7 +13,11 @@ npm run dev
 
 ## Use
 
-Copy `src/VenmoVerification.tsx` and `src/venmo-verification.css` into a React app, or install the package from a local checkout.
+Copy `src/VenmoVerification.tsx` and `src/venmo-verification.css` into a React app, or install this repository directly:
+
+```bash
+npm install github:rsgenack/venmo-handle-verification
+```
 
 ```tsx
 import { VenmoVerification } from "venmo-handle-verification";
